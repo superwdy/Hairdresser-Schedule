@@ -1,0 +1,34 @@
+For the Program:
+
+1.Import “datetime” library to check time and to realize summation of time.
+2. In terms of objected-oriented design, create a base class “Service” from which two subclasses “Hairclass” and “Shampoo_Haircut” to optimize the scalability of the whole program.
+3. Define several functions.
+    And invoke recursively once the program come up with an error in some places.
+
+
+
+
+How to run the program?
+
+Step 1:
+Open you shell.
+Step 2:
+cd to the project folder “Haircut”.
+Step 3:
+cd to the project folder “venv”.
+Step 4:
+Type “python Haircut.py”
+
+Congrat! There we go!!!
+
+
+
+Test cases:
+
+1. schedule => haircut => 08:00 => 0 => schedule => shampoo => 08:15
+Program prompts an error because the new shampoo appointment conflicts with the haircut appointment at 08:00.
+2. schedule => haircut => 08:00 => schedule => shampoo => 08:30 => list
+The program list two appointments with the info about services, time and ID in order.
+[Haircut, 08:00, 0] and [Shampoo&Haircut, 08:30, 1]
+3. exit
+The program exits the whole program and prompts “You exited the program!”.aysql-connector-python-cext
