@@ -2,7 +2,6 @@
 from datetime import datetime as dt
 from datetime import timedelta as delta
 
-
 # Define one base class: Service.
 class Service(object):
         def __init__(self, service, time, id):
@@ -26,7 +25,6 @@ class Haircut(Service):
         end = end.strftime("%H:%M")
         availability[time] = end
 
-
 class Shampoo_Haircut(Service):
     # The init function accepts an additional parameter which is named "id" to distinguish different appointments.
     def __init__(self, service, time, id):
@@ -37,11 +35,9 @@ class Shampoo_Haircut(Service):
         end = end.strftime("%H:%M")
         availability[time] = end
 
-
 # Define a list to store the info of appointments and a dictionary to check if a specific time is available.
 appointments = []
 availability = {}
-
 
 # Define functions and classes as following:
 def List():
@@ -54,10 +50,11 @@ def List():
 def requestTime():
     time = raw_input("What time is this appointment?\n(Please input time in the format like 08:10/10:30)")
 
-    # Check if the time if in a correct format. If the format is not correct, invoke the requestTime() function again.
+    # Check if the time if in a correct format. If the format is not correct,
+    # invoke itself recursively to request another time.
     if len(time) != 5:
         print "The format of time is not correct!\n(The format must be XX:XX!!!)"
-        requestTime()
+        time = requestTime()
 
     # Check if the time is available. If the time is not available, invoke the requestTime() function again.
     for key, value in availability.items():
@@ -65,7 +62,7 @@ def requestTime():
             print "The time is not available!"
 
             # Invoke itself recursively to request another time if the time input is not available.
-            requestTime()
+            time = requestTime()
 
     return time
 
@@ -97,13 +94,11 @@ def requestService():
         print "Sorry! This service doesn't exist!"
 
         # Invoke itself recursively to request another service if the service input is incorrect.
-        requestService()
+        service = requestService()
 
     return service
 
-
-
-
+# Here is the main body of the program. It runs until the user hits exit command.
 while True:
     # Users are allowed to request actions they want.
     action = raw_input("What would you do?\n(Please say 'List', 'Schedule' or 'Exit'!)")
